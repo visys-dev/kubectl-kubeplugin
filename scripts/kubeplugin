@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+NAMESPACE="${1:-}"
+RESOURCE="${2:-pod}"
+
+if [[ -z "$NAMESPACE" ]]; then
+    echo "Usage: $0 <namespace> [resource]"
+    exit 1
+fi
+
+if [[ "$RESOURCE" != "pod" && "$RESOURCE" != "pods" ]]; then
+    echo "Error: only pod resource is supported"
+    exit 1
+fi
+
+echo "Resource, Namespace, Name, CPU, Memory"
+
+kubectl top pod \
+    --namespace "$NAMESPACE" \
+    --no-headers |
+while read -r NAME CPU MEMORY; do
+    echo "Pod, $NAMESPACE, $NAME, $CPU, $MEMORY"
+done
