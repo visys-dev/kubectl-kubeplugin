@@ -1,0 +1,5 @@
+Resource, Namespace, Name, CPU, Memory
+Pod, kube-system, coredns-54996dc9b4-q5w8x, 2m, 14Mi
+Pod, kube-system, local-path-provisioner-58d557dc48-xrkc9, 1m, 8Mi
+Pod, kube-system, metrics-server-6dc596dfb8-ftnh7, 4m, 29Mi
+Pod, kube-system, traefik-59b7647586-msmpl, 1m, 21Mi
